@@ -1,7 +1,6 @@
 package com.cbw.week1.jvm;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,6 +10,7 @@ import java.nio.file.Paths;
  * @author chenbowen
  * @date 2021/8/8 22:45
  */
+
 public class HelloClassLoader extends ClassLoader{
 
     private static String CONFIG_FILE_PATH = "file/week1";
@@ -20,15 +20,7 @@ public class HelloClassLoader extends ClassLoader{
             Class<?> helloClass = new HelloClassLoader().findClass("Hello");
             Method helloMethod = helloClass.getMethod("hello");
             helloMethod.invoke(helloClass.newInstance());
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
