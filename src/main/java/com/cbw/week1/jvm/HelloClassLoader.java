@@ -1,5 +1,8 @@
 package com.cbw.week1.jvm;
 
+import com.cbw.constants.CommonConstants;
+
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.nio.file.Files;
@@ -13,8 +16,6 @@ import java.nio.file.Paths;
 
 public class HelloClassLoader extends ClassLoader{
 
-    private static String CONFIG_FILE_PATH = "file/week1";
-
     public static void main(String[] args) {
         try {
             Class<?> helloClass = new HelloClassLoader().findClass("Hello");
@@ -25,9 +26,14 @@ public class HelloClassLoader extends ClassLoader{
         }
     }
 
+    private static void a() {
+    }
+
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
-        Path path = Paths.get("F:/myRepertory/jksj-demo/file/week1/Hello.xlass");
+        //Path path = Paths.get("F:/myRepertory/jksj-demo/file/week1/Hello.xlass");
+        Path path = Paths.get(new File(
+                CommonConstants.CONFIG_FILE_PATH + "Hello.xlass").getPath());
         byte[] helloBase64 = new byte[0];
         try {
             helloBase64 = Files.readAllBytes(path);
