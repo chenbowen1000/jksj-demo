@@ -1,0 +1,21 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+.class
+.classpath
+.project
+build
+bin
+.bak
+.settings
+Thumbs.db
+.DS_Store
+._.DS_Store
+logs
+target
+*.iml
+.idea
+.tomcatplugin
+.#webclasspath
+diamond_config_data.log
