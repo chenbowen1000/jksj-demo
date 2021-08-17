@@ -13,9 +13,9 @@ public class GCLogAnalysis {
 
     public static void main(String[] args) {
         long startMills = System.currentTimeMillis();
-        long timeoutMills = TimeUnit.SECONDS.toMillis(1);
+        long timeoutMills = TimeUnit.SECONDS.toMillis(2);
         long endMills = startMills+timeoutMills;
-        LongAdder longAdder = new LongAdder();
+        LongAdder counter = new LongAdder();
         System.out.println("正在执行========");
 
         int cacheSize = 2000;
@@ -23,12 +23,14 @@ public class GCLogAnalysis {
 
         while(System.currentTimeMillis()<endMills){
             Object garbage = createGarbage(100 * 1024);
-
+            counter.increment();
             int randomIndex = random.nextInt(2 * cacheSize);
             if(randomIndex<cacheSize){
                 cacheGarbage[randomIndex] = garbage;
             }
         }
+
+        System.out.println("执行结束！共生成对象次数:" +counter.longValue());
 
     }
 
