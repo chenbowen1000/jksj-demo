@@ -6,8 +6,9 @@
 
     -XX:+PrintGCDetails
     -XX:+PrintGCDateStamps
+    -XX:+UseParallelGC
     -Xloggc:gc.demo.log
-    -Xmx1g
+    -Xmx512M
     -Xms1g
                         
 2.没配置xmx xms时候，会默认使用1/4物理内存作为做大堆内存 
