@@ -34,7 +34,7 @@ public class CallableTest {
 
         @Override
         public String call() throws Exception {
-
+            System.out.println("666");
             return "method1";
         }
     }
